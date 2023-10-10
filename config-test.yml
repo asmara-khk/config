@@ -1,0 +1,47 @@
+  data:
+    mongodb:
+      uri: mongodb://192.168.77.3:27017/caremanage
+#      host: localhost
+#      port: 27017
+      database: caremanage
+
+  r2dbc:
+#    url: r2dbc:postgresql://localhost:5432/caremanage
+    host: 192.168.77.3
+    port: 5432
+    username: dxlab
+    password: eldortmfoq123$%^
+    initialization-mode: always
+    pool:
+      enabled: true
+      initial-size: 5
+      max-size: 10
+      max-idle-time: 30
+    name: caremanage
+
+  datasource:
+    url: jdbc:postgresql://192.168.77.3:5432/caremanage
+    username: dxlab
+    password: eldortmfoq123$%^
+#    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 4
+
+#  jpa:
+#    hibernate:
+#      dialect: org.hibernate.dialect.PostgreSQLDialect
+#      ddl-auto: update
+#      format_sql: true
+#      naming:
+#        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+#        ##entity를 camelCase로 작성시 db에는 snake_case로 컬럼명이 들어가게 되는데 이걸 막기위함.
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        use_sql_comments: true
+    show-sql: true
+    database: postgresql
+    generate-ddl: true
